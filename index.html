@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <style>
+        #map {
+            width: 603px;
+            height: 572px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="data/8595_cm_depth_0.js"></script>
+        <script src="data/4555_cm_depth_1.js"></script>
+        <script src="data/1525_cm_depth_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        function pop_8595_cm_depth_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(feature.properties['left'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(feature.properties['top'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(feature.properties['right'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(feature.properties['bottom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sat_hydro</th>\
+                        <td>' + (feature.properties['Sat_hydro'] !== null ? autolinker.link(feature.properties['Sat_hydro'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Porosity</th>\
+                        <td>' + (feature.properties['Porosity'] !== null ? autolinker.link(feature.properties['Porosity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TAW</th>\
+                        <td>' + (feature.properties['TAW'] !== null ? autolinker.link(feature.properties['TAW'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">GravelCont</th>\
+                        <td>' + (feature.properties['GravelCont'] !== null ? autolinker.link(feature.properties['GravelCont'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FC</th>\
+                        <td>' + (feature.properties['FC'] !== null ? autolinker.link(feature.properties['FC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BD</th>\
+                        <td>' + (feature.properties['BD'] !== null ? autolinker.link(feature.properties['BD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_8595_cm_depth_0_0() {
+            return {
+                pane: 'pane_8595_cm_depth_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_8595_cm_depth_0');
+        map.getPane('pane_8595_cm_depth_0').style.zIndex = 400;
+        map.getPane('pane_8595_cm_depth_0').style['mix-blend-mode'] = 'normal';
+        var layer_8595_cm_depth_0 = new L.geoJson(json_8595_cm_depth_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_8595_cm_depth_0',
+            layerName: 'layer_8595_cm_depth_0',
+            pane: 'pane_8595_cm_depth_0',
+            onEachFeature: pop_8595_cm_depth_0,
+            style: style_8595_cm_depth_0_0,
+        });
+        bounds_group.addLayer(layer_8595_cm_depth_0);
+        map.addLayer(layer_8595_cm_depth_0);
+        function pop_4555_cm_depth_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(feature.properties['left'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(feature.properties['top'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(feature.properties['right'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(feature.properties['bottom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sat_hydro</th>\
+                        <td>' + (feature.properties['Sat_hydro'] !== null ? autolinker.link(feature.properties['Sat_hydro'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Porosity</th>\
+                        <td>' + (feature.properties['Porosity'] !== null ? autolinker.link(feature.properties['Porosity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TAW</th>\
+                        <td>' + (feature.properties['TAW'] !== null ? autolinker.link(feature.properties['TAW'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">GravelCont</th>\
+                        <td>' + (feature.properties['GravelCont'] !== null ? autolinker.link(feature.properties['GravelCont'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FC</th>\
+                        <td>' + (feature.properties['FC'] !== null ? autolinker.link(feature.properties['FC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BD</th>\
+                        <td>' + (feature.properties['BD'] !== null ? autolinker.link(feature.properties['BD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_4555_cm_depth_1_0() {
+            return {
+                pane: 'pane_4555_cm_depth_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_4555_cm_depth_1');
+        map.getPane('pane_4555_cm_depth_1').style.zIndex = 401;
+        map.getPane('pane_4555_cm_depth_1').style['mix-blend-mode'] = 'normal';
+        var layer_4555_cm_depth_1 = new L.geoJson(json_4555_cm_depth_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_4555_cm_depth_1',
+            layerName: 'layer_4555_cm_depth_1',
+            pane: 'pane_4555_cm_depth_1',
+            onEachFeature: pop_4555_cm_depth_1,
+            style: style_4555_cm_depth_1_0,
+        });
+        bounds_group.addLayer(layer_4555_cm_depth_1);
+        map.addLayer(layer_4555_cm_depth_1);
+        function pop_1525_cm_depth_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(feature.properties['left'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(feature.properties['top'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(feature.properties['right'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(feature.properties['bottom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sat_hydro</th>\
+                        <td>' + (feature.properties['Sat_hydro'] !== null ? autolinker.link(feature.properties['Sat_hydro'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Porosity</th>\
+                        <td>' + (feature.properties['Porosity'] !== null ? autolinker.link(feature.properties['Porosity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">EC</th>\
+                        <td>' + (feature.properties['EC'] !== null ? autolinker.link(feature.properties['EC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">pH</th>\
+                        <td>' + (feature.properties['pH'] !== null ? autolinker.link(feature.properties['pH'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TAW</th>\
+                        <td>' + (feature.properties['TAW'] !== null ? autolinker.link(feature.properties['TAW'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">GravelCont</th>\
+                        <td>' + (feature.properties['GravelCont'] !== null ? autolinker.link(feature.properties['GravelCont'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Gravel_dep</th>\
+                        <td>' + (feature.properties['Gravel_dep'] !== null ? autolinker.link(feature.properties['Gravel_dep'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FC</th>\
+                        <td>' + (feature.properties['FC'] !== null ? autolinker.link(feature.properties['FC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Elevation</th>\
+                        <td>' + (feature.properties['Elevation'] !== null ? autolinker.link(feature.properties['Elevation'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BD</th>\
+                        <td>' + (feature.properties['BD'] !== null ? autolinker.link(feature.properties['BD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_1525_cm_depth_2_0() {
+            return {
+                pane: 'pane_1525_cm_depth_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_1525_cm_depth_2');
+        map.getPane('pane_1525_cm_depth_2').style.zIndex = 402;
+        map.getPane('pane_1525_cm_depth_2').style['mix-blend-mode'] = 'normal';
+        var layer_1525_cm_depth_2 = new L.geoJson(json_1525_cm_depth_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_1525_cm_depth_2',
+            layerName: 'layer_1525_cm_depth_2',
+            pane: 'pane_1525_cm_depth_2',
+            onEachFeature: pop_1525_cm_depth_2,
+            style: style_1525_cm_depth_2_0,
+        });
+        bounds_group.addLayer(layer_1525_cm_depth_2);
+        map.addLayer(layer_1525_cm_depth_2);
+        map.createPane('pane_Base_3');
+        map.getPane('pane_Base_3').style.zIndex = 403;
+        var img_Base_3 = 'data/Base_3.png';
+        var img_bounds_Base_3 = [[6.387833171,80.85698354],[6.443452163,80.962266091]];
+        var layer_Base_3 = new L.imageOverlay(img_Base_3,
+                                              img_bounds_Base_3,
+                                              {pane: 'pane_Base_3'});
+        bounds_group.addLayer(layer_Base_3);
+        map.addLayer(layer_Base_3);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        var baseMaps = {};
+        L.control.layers(baseMaps,{"Base": layer_Base_3,'<img src="legend/1525_cm_depth_2.png" /> 15-25_cm_depth': layer_1525_cm_depth_2,'<img src="legend/4555_cm_depth_1.png" /> 45-55_cm_depth': layer_4555_cm_depth_1,'<img src="legend/8595_cm_depth_0.png" /> 85-95_cm_depth': layer_8595_cm_depth_0,}).addTo(map);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
